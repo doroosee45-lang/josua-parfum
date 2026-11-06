@@ -1,0 +1,279 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Montserrat', 'Inter', system-ui, sans-serif;
+  --ease-atelier: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: #61524E;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #61524E;
+  color: #1A1210;
+  overflow-x: clip;
+  letter-spacing: 0.01em;
+}
+
+@layer components {
+  /* Unified Haute-Parfumerie Button System — High Contrast & Soft Rounded Corners */
+  .btn-atelier-dark {
+    @apply inline-flex items-center justify-center gap-2.5 px-7 h-[46px] rounded-xl bg-[#1E1614] text-white border border-[#1E1614] text-[11px] uppercase tracking-[0.2em] font-semibold select-none;
+    transition:
+      transform 0.45s var(--ease-atelier),
+      background-color 0.35s var(--ease-atelier),
+      border-color 0.35s var(--ease-atelier),
+      color 0.35s var(--ease-atelier),
+      box-shadow 0.4s var(--ease-atelier);
+  }
+  .btn-atelier-dark:hover:not(:disabled) {
+    @apply bg-[#7A4444] border-[#7A4444] text-white;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -12px rgba(30, 22, 20, 0.45);
+  }
+
+  .btn-atelier-blush {
+    @apply inline-flex items-center justify-center gap-2.5 px-7 h-[46px] rounded-xl bg-[#F3D1CA] text-[#1A1210] border border-[#F3D1CA] text-[11px] uppercase tracking-[0.2em] font-semibold select-none shadow-md;
+    transition:
+      transform 0.45s var(--ease-atelier),
+      background-color 0.35s var(--ease-atelier),
+      border-color 0.35s var(--ease-atelier),
+      color 0.35s var(--ease-atelier),
+      box-shadow 0.4s var(--ease-atelier);
+  }
+  .btn-atelier-blush:hover:not(:disabled) {
+    @apply bg-white border-white text-[#1A1210];
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.32);
+  }
+
+  .btn-atelier-outline-light {
+    @apply inline-flex items-center justify-center gap-2.5 px-7 h-[46px] rounded-xl bg-[#1E1614]/75 text-white border border-white/85 text-[11px] uppercase tracking-[0.2em] font-semibold select-none backdrop-blur-md shadow-sm;
+    transition:
+      transform 0.45s var(--ease-atelier),
+      background-color 0.35s var(--ease-atelier),
+      border-color 0.35s var(--ease-atelier),
+      color 0.35s var(--ease-atelier),
+      box-shadow 0.4s var(--ease-atelier);
+  }
+  .btn-atelier-outline-light:hover:not(:disabled) {
+    @apply bg-white border-white text-[#1A1210];
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.32);
+  }
+
+  .btn-atelier-outline-dark {
+    @apply inline-flex items-center justify-center gap-2.5 px-7 h-[46px] rounded-xl bg-white text-[#1A1210] border border-[#D4C2B7] text-[11px] uppercase tracking-[0.2em] font-semibold select-none;
+    transition:
+      transform 0.45s var(--ease-atelier),
+      background-color 0.35s var(--ease-atelier),
+      border-color 0.35s var(--ease-atelier),
+      color 0.35s var(--ease-atelier),
+      box-shadow 0.4s var(--ease-atelier);
+  }
+  .btn-atelier-outline-dark:hover:not(:disabled) {
+    @apply bg-[#F7F0EA] border-[#7A4444] text-[#1A1210];
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px -12px rgba(30, 22, 20, 0.2);
+  }
+
+  /* 100% Opaque Pure Warm Ivory Card Floating Over Fixed Sakura Backdrop (Zero Bleed-Through) */
+  .surface-ivory-card {
+    @apply rounded-3xl bg-[#FFFFFF] text-[#1A1210] border border-[#E6D7CE] shadow-[0_22px_52px_-16px_rgba(20,14,13,0.38)];
+  }
+
+  /* High-Contrast Dark Espresso-Velvet Veil Panel on Fixed Sakura Backdrop */
+  .surface-sakura-veil {
+    @apply bg-[#1F1715]/85 backdrop-blur-md border-y border-white/20 text-white;
+  }
+
+  /* High-Contrast Input & Select */
+  .input-atelier {
+    @apply w-full rounded-xl bg-white border border-[#CFAFA3] px-4 py-3 text-[13.5px] font-normal text-[#1A1210] placeholder:text-[#6E5D58] transition-all duration-300 focus:border-[#7A4444] focus:ring-2 focus:ring-[#E8C8C3]/50 focus:outline-none;
+  }
+
+  .label-atelier {
+    @apply block text-[11px] uppercase tracking-[0.18em] text-[#2B201D] font-semibold mb-2;
+  }
+
+  /* Unified Warm Haute-Parfumerie Photo Harmonization Filter */
+  .photo-atelier-harmonized {
+    filter: brightness(1.02) contrast(0.99) saturate(0.97);
+  }
+}
+
+/* Smooth Progress Fill for Hero Indicators */
+@keyframes heroProgress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-hero-progress {
+  transform-origin: left center;
+  animation: heroProgress 7s linear forwards;
+}
+
+/* Choreographed Hero Text Motion (Never Traps Text Invisible) */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0.92;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-1 {
+  animation: heroFadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-hero-2 {
+  animation: heroFadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.06s both;
+}
+.animate-hero-3 {
+  animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+.animate-hero-4 {
+  animation: heroFadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both;
+}
+
+/* Gentle Floating Sakura Blossoms & Petals */
+@keyframes petalFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate3d(8px, -10px, 0) rotate(6deg);
+  }
+  66% {
+    transform: translate3d(-6px, 7px, 0) rotate(-5deg);
+  }
+}
+
+.animate-petal-float {
+  animation-name: petalFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+/* Crisp Immediate Page Entrance (Never Transparent) */
+@keyframes pageEnter {
+  from {
+    transform: translateY(6px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-page-enter {
+  animation: pageEnter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Smooth Modal & Drawer Animations */
+@keyframes backdropFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes drawerSlideLeft {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawerSlideRight {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes modalScaleUp {
+  from {
+    transform: translateY(12px) scale(0.985);
+  }
+  to {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-backdrop {
+  animation: backdropFade 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.animate-drawer-right {
+  animation: drawerSlideLeft 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.animate-drawer-left {
+  animation: drawerSlideRight 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.animate-modal-up {
+  animation: modalScaleUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (max-width: 640px) {
+  .btn-atelier-dark:hover:not(:disabled),
+  .btn-atelier-blush:hover:not(:disabled),
+  .btn-atelier-outline-light:hover:not(:disabled),
+  .btn-atelier-outline-dark:hover:not(:disabled) {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #4E413E;
+}
+::-webkit-scrollbar-thumb {
+  background: #B99E97;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ECCBC5;
+}

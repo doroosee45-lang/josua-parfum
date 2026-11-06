@@ -1,0 +1,13 @@
+import mongoose from 'mongoose';
+
+const adminSchema = new mongoose.Schema(
+  {
+    username: { type: String, default: 'proprietaire', unique: true },
+    passwordHash: { type: String, required: true },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+export default mongoose.models.Admin || mongoose.model('Admin', adminSchema);
